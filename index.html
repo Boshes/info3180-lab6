@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myShoppingList">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="myCtrl.js"></script>
+<title>My Shopping List</title>
+<body ng-controller="myCtrl" class="wrapper" style="background-color:#d4cacc">
+    <div class="container col-md-6">
+        <h1>
+            My Shopping List
+        </h1>
+        <ul>
+            <li ng-repeat="x in products">
+                <h3><span ng-bind="x"></span>
+                    <span ng-click="removeItem($index)">&times;</span>
+                </h3>
+            </li>
+        </ul>
+    </div>
+    <div class="container col-md-6">
+        <h1>
+            Add an Item to the Shopping List
+        </h1>
+        <span>
+            <input ng-model="addMe" class="form-control">
+            <br />
+            <button ng-click="addItem()" class="btn btn-default">Add</button>
+        </span>
+        <br />
+        <br />
+        <p>
+            <span ng-bind="errortext" class="alert alert-danger" ng-show="errortext"></span>
+        </p>
+    </div>
+</body>
+</html>
